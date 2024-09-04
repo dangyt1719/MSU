@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: action
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - my_network
+
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my_csharp_app
+    restart: always
+    environment:
+      ConnectionStrings__PostgreSQL: "Host=postgres;Port=5432;Database=action;Username=test;Password=test"
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - my_network
+
+volumes:
+  postgres_data:
+
+networks:
+  my_network:
+    driver: bridge

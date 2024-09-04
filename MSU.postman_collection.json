@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "ee6b5b57-5ef7-416e-ad7d-c5e2592f146c",
+		"name": "MSU",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4512194"
+	},
+	"item": [
+		{
+			"name": "create actions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"dateTime\": \"2022-01-09T14:45:20Z\",\r\n        \"sender\": \"Jason\",\r\n        \"description\": \"Jason test case\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.19.64.1:8080/actions",
+					"protocol": "http",
+					"host": [
+						"172",
+						"19",
+						"64",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"actions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get actions by dates from to",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.19.64.1:8080/actions/filters/dates?ActionDateFrom=2022-01-06 14:45:20.000&ActionDateTo=2022-01-06 14:45:20.000",
+					"protocol": "http",
+					"host": [
+						"172",
+						"19",
+						"64",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"actions",
+						"filters",
+						"dates"
+					],
+					"query": [
+						{
+							"key": "ActionDateFrom",
+							"value": "2022-01-06 14:45:20.000"
+						},
+						{
+							"key": "ActionDateTo",
+							"value": "2022-01-06 14:45:20.000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all actions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.19.64.1:8080/actions",
+					"protocol": "http",
+					"host": [
+						"172",
+						"19",
+						"64",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"actions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get actions by sender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.19.64.1:8080/actions/filters/senders?Sender=Jason",
+					"protocol": "http",
+					"host": [
+						"172",
+						"19",
+						"64",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"actions",
+						"filters",
+						"senders"
+					],
+					"query": [
+						{
+							"key": "Sender",
+							"value": "Jason"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
